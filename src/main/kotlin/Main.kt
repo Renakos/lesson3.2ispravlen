@@ -5,11 +5,12 @@ fun main(args: Array<String>) {
             balance += 1000
         }
         val scanner = Scanner(System.`in`)
-        store.displayProducts()
-        print("Введите ID товара, который вы хотите купить: ")
-        val productId = scanner.nextInt()
-        store.buy(productId, user)
         with(store) {
+            store.displayProducts()
+            print("Введите ID товара, который вы хотите купить: ")
+            val productId = scanner.nextInt()
+            store.buy(productId, user)
+
             printProductNames()
         }
         with(user) {

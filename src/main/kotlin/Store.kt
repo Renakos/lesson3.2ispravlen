@@ -1,5 +1,5 @@
 class Store: Buyable  {
-    val products = mutableMapOf<Int, Product>()
+    private val products = mutableMapOf<Int, Product>()
 
     init {
         addProduct(1, Product("Товар 1", 100))
@@ -7,7 +7,7 @@ class Store: Buyable  {
         addProduct(3, Product("Товар 3", 200))
     }
 
-    fun addProduct(id: Int, product: Product) {
+    private fun addProduct(id: Int, product: Product) {
         products[id] = product
     }
 
@@ -16,9 +16,9 @@ class Store: Buyable  {
             1, 2, 3 -> {
                 val product = products[productId]
                 product?.apply {
-                    val amount = this.price
+                    val amount = price
                     println("Покупатель: ${buyer.name}")
-                    println("Товар: ${this.name}")
+                    println("Товар: $name")
                     println("Стоимость товара: $amount рублей")
                     println("Адрес доставки: ${buyer.address}")
 

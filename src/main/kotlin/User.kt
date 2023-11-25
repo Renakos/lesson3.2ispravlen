@@ -1,17 +1,14 @@
-data class User(val name: String, val address: String, var balance: Int = 0) {
-    init {
-        if (balance !in 0..100000) {
-            throw IllegalArgumentException("За раз можно пополнить баланс только на сумму не выше 100000")
-        }
-    }
-
-    var customBalance: Int
+data class User(
+    val name: String,
+    val address: String) {
+    var balance: Int = 0
         set(value) {
             if (value in 0..100000) {
-                balance = value
+                field = value
             } else {
                 throw IllegalArgumentException("За раз можно пополнить баланс только на сумму не выше 100000")
             }
         }
-        get() = balance
+        get() = field
+
 }
